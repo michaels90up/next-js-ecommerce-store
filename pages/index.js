@@ -7,8 +7,11 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Home</title>
-        <meta name="description" content="Overview of the animals" />
+        <title>Sculptures for everyone</title>
+        <meta
+          name="description"
+          content="Overview of all sculptures for sale"
+        />
       </Head>
 
       <div>Home</div>

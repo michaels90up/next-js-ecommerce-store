@@ -21,8 +21,8 @@ export default function Animals(props) {
   return (
     <>
       <Head>
-        <title>All of the animals</title>
-        <meta name="description" content="List page of all animals" />
+        <title>Sculpture information</title>
+        <meta name="description" content="List page of all available sculptures" />
       </Head>
 
       <h1>Animals</h1>
