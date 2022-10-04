@@ -2,7 +2,8 @@ import { css } from '@emotion/react';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getAnimals } from '../../database/animals';
+
+// import { getAnimals } from '../../database/animals';
 
 const animalStyles = css`
   border-radius: 15px;
