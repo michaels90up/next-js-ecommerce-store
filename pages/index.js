@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import Header from '../components/Header';
 
 export default function Home() {
   return (
@@ -12,12 +11,8 @@ export default function Home() {
         />
       </Head>
       <main>
-        <Header />
         <h1>Sculptures for everyone</h1>
-        <Image
-        src={...}
-        alt="waitabit"
-      />
+        <img src="/donatello.jpeg" alt="famous Donatello sculpture" />
       </main>
     </>
   );
