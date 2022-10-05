@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import donatello from '../public/donatello.jpeg';
+import donatello from '../public/1-donatello.jpeg';
 
 export default function Home() {
   return (

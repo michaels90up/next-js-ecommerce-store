@@ -23,7 +23,7 @@ const sculptures = [
   { id: 5, name: 'Voyageur', material: 'Metal', price: 3350 },
 ];
 
-export default function Sculptures(props) {
+export default function Sculptures() {
   return (
     <>
       <Head>
@@ -33,7 +33,7 @@ export default function Sculptures(props) {
 
       <h1>Sculptures</h1>
 
-      {props.sculptures.map((sculpture) => {
+      {sculptures.map((sculpture) => {
         return (
           <div
             data-test-id={`sculpture-material-${sculpture.material}`}
