@@ -36,7 +36,7 @@ export default function Sculptures(props) {
       {props.sculptures.map((sculpture) => {
         return (
           <div
-            data-test-id={`sculpture-type-${sculpture.material}`}
+            data-test-id={`sculpture-material-${sculpture.material}`}
             key={`sculpture-${sculpture.id}`}
             css={sculptureStyles}
           >
@@ -44,7 +44,7 @@ export default function Sculptures(props) {
               <Link href={`/sculpture/${sculpture.id}`}>{sculpture.name}</Link>
             </h2>
 
-            <Link href={`/animals/${sculpture.id}`}>
+            <Link href={`/sculptures/${sculpture.id}`}>
               <a>
                 <Image
                   src={`/${sculpture.id}-${sculpture.name.toLowerCase()}.jpeg`}
