@@ -22,10 +22,6 @@ function MyApp({ Component, pageProps }) {
       />
       <CookieBanner />
       <Layout>
-        {/*
-          The "Component" component refers to
-          the current page that is being rendered
-        */}
         <Component {...pageProps} />
       </Layout>
     </>

@@ -13,7 +13,11 @@ export default function Home() {
       </Head>
       <main>
         <Header />
-        Sculptures for everyone
+        <h1>Sculptures for everyone</h1>
+        <Image
+        src={...}
+        alt="waitabit"
+      />
       </main>
     </>
   );

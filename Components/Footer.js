@@ -7,5 +7,5 @@ const footerStyles = css`
 `;
 
 export default function Footer() {
-  return <footer css={footerStyles}>copyright animals4everyone 2023</footer>;
+  return <footer css={footerStyles}>Copyright lovesculptures 2022</footer>;
 }
