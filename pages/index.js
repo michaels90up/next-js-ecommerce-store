@@ -1,4 +1,6 @@
 import Head from 'next/head';
+import Image from 'next/image';
+import donatello from '../public/donatello.jpeg';
 
 export default function Home() {
   return (
@@ -12,7 +14,12 @@ export default function Home() {
       </Head>
       <main>
         <h1>Sculptures for everyone</h1>
-        <img src="/donatello.jpeg" alt="famous Donatello sculpture" />
+        <Image
+          src={donatello}
+          alt="famous Donatello sculpture"
+          width={300}
+          height={300}
+        />
       </main>
     </>
   );
