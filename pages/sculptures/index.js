@@ -2,6 +2,7 @@ import { css } from '@emotion/react';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
+import Header from '../../components/Header';
 
 // import { getAnimals } from '../../database/animals';
 
@@ -24,6 +25,7 @@ export default function Animals(props) {
         <title>Sculpture information</title>
         <meta name="description" content="List page of all available sculptures" />
       </Head>
+      <Header />
 
       <h1>Animals</h1>
 

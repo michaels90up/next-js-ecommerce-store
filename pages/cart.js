@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Header from '../components/Header';
 
 export default function Cart() {
   return (
@@ -7,6 +8,7 @@ export default function Cart() {
         <title>Cart</title>
         <meta name="description" content="Cart with chosen sculptures" />
       </Head>
+      <Header />
       Cart page
     </div>
   );
