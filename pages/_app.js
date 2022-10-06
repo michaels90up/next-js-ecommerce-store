@@ -1,5 +1,5 @@
 import { css, Global } from '@emotion/react';
-// import CookieBanner from '../components/CookieBanner';
+import CookieBanner from '../components/CookieBanner';
 import Layout from '../components/Layout';
 
 function MyApp({ Component, pageProps }) {
@@ -21,7 +21,7 @@ function MyApp({ Component, pageProps }) {
           }
         `}
       />
-      {/* <CookieBanner /> */}
+      <CookieBanner />
       <Layout>
         <Component {...pageProps} />
       </Layout>
