@@ -2,6 +2,7 @@ import { css } from '@emotion/react';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
+import { sculptures } from '../../database/sculptures';
 
 const sculptureStyles = css`
   border-radius: 15px;
@@ -15,15 +16,7 @@ const sculptureStyles = css`
   }
 `;
 
-const sculptures = [
-  { id: 1, name: 'Donatello', material: 'Plastic', price: 150 },
-  { id: 2, name: 'Moai', material: 'Stone', price: 500 },
-  { id: 3, name: 'Spider', material: 'Bronze', price: 700 },
-  { id: 4, name: 'Bean', material: 'Steal', price: 1200 },
-  { id: 5, name: 'Voyageur', material: 'Metal', price: 3350 },
-];
-
-export default function Sculptures() {
+export default function Sculptures(props) {
   return (
     <>
       <Head>
@@ -33,7 +26,7 @@ export default function Sculptures() {
 
       <h1>Sculptures</h1>
 
-      {sculptures.map((sculpture) => {
+      {props.sculptures.map((sculpture) => {
         return (
           <div
             data-test-id={`sculpture-material-${sculpture.material}`}
@@ -72,17 +65,16 @@ export default function Sculptures() {
 // Note: this function can only be exported
 // from files within pages/
 
-// export async function getServerSideProps() {
-// const sculptures = await getSculptures();
-// return {
-// Anything that you write in this props object
-// will become the props that are passed to
-// the `Animals` page component above
-// props: {
-// First prop, containing all animals
-// sculptures: sculptures,
-// Second prop, example
-// abc: 123,
-// },
-// };
-// }
+export function getServerSideProps() {
+  return {
+    // Anything that you write in this props object
+    // will become the props that are passed to
+    // the `Animals` page component above
+    props: {
+      // First prop, containing all animals
+      sculptures: sculptures,
+      // Second prop, example
+      // abc: 123,
+    },
+  };
+}
