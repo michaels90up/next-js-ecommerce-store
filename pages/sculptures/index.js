@@ -8,12 +8,29 @@ const sculptureStyles = css`
   border-radius: 15px;
   border: 1px solid #ccc;
   padding: 20px;
+  align-items: center;
   h2 {
     margin-top: 0;
   }
   & + & {
     margin-top: 25px;
   }
+`;
+
+const sculptureInputStyles = css`
+  text-align: center;
+  border: 0 none;
+  height: 32px;
+  width: 60px;
+  margin: 4px;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 8px;
+`;
+
+const sculptureButtonStyles = css`
+  height: 34px;
+  width: 25px;
 `;
 
 export default function Sculptures(props) {
@@ -50,6 +67,20 @@ export default function Sculptures(props) {
 
             <div>Material: {sculpture.material}</div>
             <div>Price: {sculpture.price}</div>
+            <form
+              onSubmit={(event) => {
+                event.preventDefault();
+              }}
+            >
+              <button css={sculptureButtonStyles}>-</button>
+              <input
+                type="number"
+                min={1}
+                max={10}
+                css={sculptureInputStyles}
+              />
+              <button css={sculptureButtonStyles}>+</button>
+            </form>
           </div>
         );
       })}

@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 import Link from 'next/link';
 
 const navStyles = css`
-  background-color: #e8b151;
+  background-color: #f2d94b;
   border-radius: 6px;
   margin: 20px 10px;
   padding: 10px;

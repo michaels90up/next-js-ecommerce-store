@@ -58,17 +58,6 @@ export default function Sculpture(props) {
 export async function getServerSideProps(context) {
   // Retrieve the animal ID from the URL
   const sculptureId = parseInt(context.query.sculptureId);
-
-  // Finding the animal
-  //
-  // Note: This is not the most efficient way
-  // of finding the single animal, because it
-  // will run every time. Using a database
-  // like PostgreSQL will allow you to do this
-  // in a nicer way.
-  // const foundAnimal = animals.find((animal) => {
-  //   return animal.id === animalId;
-  // });
   const foundSculpture = await getSculptureById(sculptureId);
 
   if (typeof foundSculpture === 'undefined') {

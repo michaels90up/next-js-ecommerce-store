@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps }) {
               Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
               sans-serif;
             margin: 0;
-            background-color: #c9c3b7;
+            background-color: #ebe8d8;
           }
         `}
       />
