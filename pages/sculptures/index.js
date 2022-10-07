@@ -67,6 +67,8 @@ export default function Sculptures(props) {
 
             <div>Material: {sculpture.material}</div>
             <div>Price: {sculpture.price}</div>
+            <br />
+            <div>You can buy up to 10 sculptures each.</div>
             <form
               onSubmit={(event) => {
                 event.preventDefault();
