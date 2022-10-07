@@ -2,6 +2,7 @@ import { css } from '@emotion/react';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
+// import { getSculptures } from '../../database/connect';
 import { sculptures } from '../../database/sculptures';
 
 const sculptureStyles = css`
@@ -68,7 +69,7 @@ export default function Sculptures(props) {
             <div>Material: {sculpture.material}</div>
             <div>Price: {sculpture.price}</div>
             <br />
-            <div>You can buy up to 10 sculptures each.</div>
+            <div>You can buy up to 10 sculptures.</div>
             <form
               onSubmit={(event) => {
                 event.preventDefault();
@@ -82,6 +83,7 @@ export default function Sculptures(props) {
                 css={sculptureInputStyles}
               />
               <button css={sculptureButtonStyles}>+</button>
+              <button>Add to cart</button>
             </form>
           </div>
         );
@@ -99,6 +101,7 @@ export default function Sculptures(props) {
 // from files within pages/
 
 export function getServerSideProps() {
+  // const sculptures =  getSculptures();
   return {
     // Anything that you write in this props object
     // will become the props that are passed to
