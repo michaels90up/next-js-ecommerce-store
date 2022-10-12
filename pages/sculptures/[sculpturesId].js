@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getSculptureById } from '../../database/sculptures';
+import { getSculptureById } from '../../database/connect';
 
 const sculptureStyles = css`
   border-radius: 15px;
@@ -71,7 +71,7 @@ export async function getServerSideProps(context) {
 
   return {
     props: {
-      animal: foundSculpture,
+      sculpture: foundSculpture,
     },
   };
 }

@@ -2,8 +2,7 @@ import { css } from '@emotion/react';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-// import { getSculptures } from '../../database/connect';
-import { sculptures } from '../../database/sculptures';
+import { getSculptures } from '../../database/connect';
 
 const sculptureStyles = css`
   border-radius: 15px;
@@ -100,17 +99,14 @@ export default function Sculptures(props) {
 // Note: this function can only be exported
 // from files within pages/
 
-export function getServerSideProps() {
-  // const sculptures =  getSculptures();
+export async function getServerSideProps() {
+  const sculptures = await getSculptures();
   return {
     // Anything that you write in this props object
     // will become the props that are passed to
     // the `Animals` page component above
     props: {
-      // First prop, containing all animals
       sculptures: sculptures,
-      // Second prop, example
-      // abc: 123,
     },
   };
 }
