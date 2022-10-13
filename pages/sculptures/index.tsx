@@ -1,8 +1,9 @@
 import { css } from '@emotion/react';
+import { GetServerSidePropsResult } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getSculptures } from '../../database/sculptures';
+import { getSculptures, Sculpture } from '../../database/sculptures';
 
 const sculptureStyles = css`
   border-radius: 15px;
@@ -33,7 +34,11 @@ const sculptureButtonStyles = css`
   width: 25px;
 `;
 
-export default function Sculptures(props) {
+type Props = {
+  sculptures: Sculpture[];
+};
+
+export default function Sculptures(props: Props) {
   return (
     <>
       <Head>
@@ -99,7 +104,9 @@ export default function Sculptures(props) {
 // Note: this function can only be exported
 // from files within pages/
 
-export async function getServerSideProps() {
+export async function getServerSideProps(): Promise<
+  GetServerSidePropsResult<Props>
+> {
   const sculptures = await getSculptures();
   return {
     // Anything that you write in this props object

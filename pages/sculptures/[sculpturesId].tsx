@@ -26,7 +26,7 @@ type Props =
       error: string;
     };
 
-export default function singleSculpture(props: Props) {
+export default function SingleSculpture(props: Props) {
   if ('error' in props) {
     return (
       <div>
@@ -46,7 +46,11 @@ export default function singleSculpture(props: Props) {
         <title>{props.sculpture.name}</title>
         <meta
           name="description"
-          content={`${props.sculpture.name} made out of ${props.sculpture.material} costs ${props.sculpture.price}`}
+          content={`${
+            props.sculpture.name
+          } made out of ${props.sculpture.material.toLowerCase()} costs ${
+            props.sculpture.price
+          }`}
         />
       </Head>
       <h2>{props.sculpture.name}</h2>
@@ -70,7 +74,6 @@ export async function getServerSideProps(
 ): Promise<GetServerSidePropsResult<Props>> {
   // Retrieve the animal ID from the URL
   const sculptureId = parseIntFromContextQuery(context.query.sculptureId);
-  // const foundSculpture = await getSculptureById(sculptureId);
 
   if (typeof sculptureId === 'undefined') {
     context.res.statusCode = 404;
@@ -81,6 +84,10 @@ export async function getServerSideProps(
     };
   }
   const foundSculpture = await getSculptureById(sculptureId);
+
+  // const foundAnimal = animals.find((animal) => {
+  //   return animal.id === animalId;
+  // });
 
   if (typeof foundSculpture === 'undefined') {
     context.res.statusCode = 404;
