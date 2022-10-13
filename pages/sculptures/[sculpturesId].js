@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getSculptureById } from '../../database/connect';
+import { getSculptureById } from '../../database/sculptures';
 
 const sculptureStyles = css`
   border-radius: 15px;

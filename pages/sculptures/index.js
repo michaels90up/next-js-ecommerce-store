@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getSculptures } from '../../database/connect';
+import { getSculptures } from '../../database/sculptures';
 
 const sculptureStyles = css`
   border-radius: 15px;
@@ -51,7 +51,7 @@ export default function Sculptures(props) {
             css={sculptureStyles}
           >
             <h2>
-              <Link href={`/sculpture/${sculpture.id}`}>{sculpture.name}</Link>
+              <Link href={`/sculptures/${sculpture.id}`}>{sculpture.name}</Link>
             </h2>
 
             <Link href={`/sculptures/${sculpture.id}`}>
