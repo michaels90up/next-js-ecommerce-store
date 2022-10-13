@@ -8,7 +8,7 @@ const navStyles = css`
   margin: 20px 10px;
   padding: 10px;
   > a + a {
-    margin-left: 13px;
+    margin-left: 30px;
   }
 `;
 

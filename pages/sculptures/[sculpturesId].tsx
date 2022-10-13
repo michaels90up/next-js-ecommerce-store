@@ -65,6 +65,10 @@ export default function SingleSculpture(props: Props) {
       <div>Id: {props.sculpture.id}</div>
       <div>Material: {props.sculpture.material}</div>
       <div>Price: {props.sculpture.price}</div>
+      <div>
+        <input type="number" min={1} max={10} />
+        <button>Add to cart</button>
+      </div>
     </div>
   );
 }
