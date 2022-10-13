@@ -10,7 +10,7 @@ export default function Thankyou() {
           content="Thank you message after sell"
         />
       </Head>
-      Thank you for your trust!
+      Thank you for your order!
     </div>
   );
 }

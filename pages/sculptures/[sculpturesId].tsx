@@ -55,6 +55,7 @@ export default function SingleSculpture(props: Props) {
       </Head>
       <h2>{props.sculpture.name}</h2>
       <Image
+        data-test-id="product-image"
         src={`/${
           props.sculpture.id
         }-${props.sculpture.name.toLowerCase()}.jpeg`}
@@ -64,7 +65,7 @@ export default function SingleSculpture(props: Props) {
       />
       <div>Id: {props.sculpture.id}</div>
       <div>Material: {props.sculpture.material}</div>
-      <div>Price: {props.sculpture.price}</div>
+      <div data-test-id="product-price">Price: {props.sculpture.price}</div>
       <div>
         <input type="number" min={1} max={10} />
         <button>Add to cart</button>

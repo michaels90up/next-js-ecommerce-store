@@ -17,7 +17,7 @@ export default function Header() {
     <header>
       <nav css={navStyles}>
         <Link href="/">Home</Link>
-        <Link href="/sculptures">Sculptures</Link>
+        <Link data-test-id='products-link' href="/sculptures">Sculptures</Link>
         <Link href="/cart">Cart</Link>
       </nav>
     </header>

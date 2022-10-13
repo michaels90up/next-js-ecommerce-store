@@ -56,7 +56,12 @@ export default function Sculptures(props: Props) {
             css={sculptureStyles}
           >
             <h2>
-              <Link href={`/sculptures/${sculpture.id}`}>{sculpture.name}</Link>
+              <Link
+                data-test-id={`product-${sculpture.id}`}
+                href={`/sculptures/${sculpture.id}`}
+              >
+                {sculpture.name}
+              </Link>
             </h2>
 
             <Link href={`/sculptures/${sculpture.id}`}>
