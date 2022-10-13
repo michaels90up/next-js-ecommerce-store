@@ -1,7 +1,5 @@
 import { sql } from './connect';
 
-// Now we are getting this data from the database
-//
 // export const sculptures = [
 //   { id: 1, name: 'Donatello', material: 'Plastic', price: 150 },
 //   { id: 2, name: 'Moai', material: 'Stone', price: 500 },
@@ -17,6 +15,7 @@ export type Sculpture = {
   price: number;
 };
 
+// Get all sculptures
 export async function getSculptures() {
   const sculptures = await sql<Sculpture[]>`
     SELECT * FROM sculptures;
@@ -24,6 +23,7 @@ export async function getSculptures() {
   return sculptures;
 }
 
+// Get a single sculpture by id
 export async function getSculptureById(id: number | undefined) {
   if (!id) return undefined;
   const [sculpture] = await sql<Sculpture[]>`

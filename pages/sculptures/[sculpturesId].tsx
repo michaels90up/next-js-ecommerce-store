@@ -73,8 +73,7 @@ export async function getServerSideProps(
   context: GetServerSidePropsContext,
 ): Promise<GetServerSidePropsResult<Props>> {
   // Retrieve the animal ID from the URL
-  const sculptureId = parseIntFromContextQuery(context.query.sculptureId);
-
+  const sculptureId = parseIntFromContextQuery(context.query.sculpturesId);
   if (typeof sculptureId === 'undefined') {
     context.res.statusCode = 404;
     return {
@@ -85,8 +84,8 @@ export async function getServerSideProps(
   }
   const foundSculpture = await getSculptureById(sculptureId);
 
-  // const foundAnimal = animals.find((animal) => {
-  //   return animal.id === animalId;
+  // const foundSculpture = sculptures.find((sculpture) => {
+  //   return sculpture.id === sculptureId;
   // });
 
   if (typeof foundSculpture === 'undefined') {
