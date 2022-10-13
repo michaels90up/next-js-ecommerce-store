@@ -1,8 +1,10 @@
 import { css } from '@emotion/react';
+import { GetServerSidePropsContext, GetServerSidePropsResult } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getSculptureById } from '../../database/sculptures';
+import { getSculptureById, Sculpture } from '../../database/sculptures';
+import { parseIntFromContextQuery } from '../../utils/contextQuery';
 
 const sculptureStyles = css`
   border-radius: 15px;
@@ -16,8 +18,16 @@ const sculptureStyles = css`
   }
 `;
 
-export default function Sculpture(props) {
-  if (props.error) {
+type Props =
+  | {
+      sculpture: Sculpture;
+    }
+  | {
+      error: string;
+    };
+
+export default function singleSculpture(props: Props) {
+  if ('error' in props) {
     return (
       <div>
         <Head>
@@ -55,9 +65,21 @@ export default function Sculpture(props) {
   );
 }
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps(
+  context: GetServerSidePropsContext,
+): Promise<GetServerSidePropsResult<Props>> {
   // Retrieve the animal ID from the URL
-  const sculptureId = parseInt(context.query.sculptureId);
+  const sculptureId = parseIntFromContextQuery(context.query.sculptureId);
+  // const foundSculpture = await getSculptureById(sculptureId);
+
+  if (typeof sculptureId === 'undefined') {
+    context.res.statusCode = 404;
+    return {
+      props: {
+        error: 'Sculpture not found',
+      },
+    };
+  }
   const foundSculpture = await getSculptureById(sculptureId);
 
   if (typeof foundSculpture === 'undefined') {

@@ -8,7 +8,6 @@ export default function Checkout() {
         <title>Checkout</title>
         <meta name="description" content="Checkout with user infos" />
       </Head>
-      <Header />
       Checkout page
     </div>
   );

@@ -8,7 +8,6 @@ export default function Cart() {
         <title>Cart</title>
         <meta name="description" content="Cart with chosen sculptures" />
       </Head>
-      <Header />
       Cart page
     </div>
   );

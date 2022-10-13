@@ -2,6 +2,7 @@ import { css } from '@emotion/react';
 import Link from 'next/link';
 
 const navStyles = css`
+  display: flex;
   background-color: #f2d94b;
   border-radius: 6px;
   margin: 20px 10px;
@@ -17,6 +18,7 @@ export default function Header() {
       <nav css={navStyles}>
         <Link href="/">Home</Link>
         <Link href="/sculptures">Sculptures</Link>
+        <Link href="/cart">Cart</Link>
       </nav>
     </header>
   );
