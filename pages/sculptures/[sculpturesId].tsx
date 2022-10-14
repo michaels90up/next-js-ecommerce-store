@@ -4,6 +4,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import { getSculptureById, Sculpture } from '../../database/sculptures';
+import { getParsedCookie, setStringifiedCookie } from '../../utils/cart';
 import { parseIntFromContextQuery } from '../../utils/contextQuery';
 
 const sculptureStyles = css`
@@ -68,7 +69,20 @@ export default function SingleSculpture(props: Props) {
       <div data-test-id="product-price">Price: {props.sculpture.price}</div>
       <div>
         <input type="number" min={1} max={10} />
-        <button>Add to cart</button>
+        <button
+          onClick={() => {
+            const currentCookieValue = getParsedCookie('cart');
+            if (!currentCookieValue) {
+              setStringifiedCookie('cart', [
+                { id: props.sculpture.id, cart: 1 },
+              ]);
+            } else {
+              setStringifiedCookie('cart', currentCookieValue + 1);
+            }
+          }}
+        >
+          Add to cart
+        </button>
       </div>
     </div>
   );
@@ -88,10 +102,6 @@ export async function getServerSideProps(
     };
   }
   const foundSculpture = await getSculptureById(sculptureId);
-
-  // const foundSculpture = sculptures.find((sculpture) => {
-  //   return sculpture.id === sculptureId;
-  // });
 
   if (typeof foundSculpture === 'undefined') {
     context.res.statusCode = 404;

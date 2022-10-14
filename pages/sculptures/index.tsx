@@ -58,6 +58,7 @@ export default function Sculptures(props: Props) {
             <h2>
               <Link
                 data-test-id={`product-${sculpture.id}`}
+                // show stupid error
                 href={`/sculptures/${sculpture.id}`}
               >
                 {sculpture.name}
